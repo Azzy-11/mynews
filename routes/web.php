@@ -16,3 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::controller(ProfileController::class)->prefix('admin')->group(function()  {
+    Route::get('profile/create', 'add');
+    Route::get('profile/edit', 'edit');
+});
