@@ -16,16 +16,6 @@ class ProfileController extends Controller
     
     public function create()
     {
-        return redirect ('admin/profile/create');
-    }
-    
-    public function edit()
-    {
-        return view('admin.profile.edit');
-    }
-    
-    public function update()
-    {
         // Validationを行う
         $this->validate($request, Profiles::$rules);
 
@@ -39,6 +29,16 @@ class ProfileController extends Controller
         $profiles->fill($form);
         $profiles->save();
         
+        return redirect ('admin/profile/create');
+    }
+    
+    public function edit()
+    {
+        return view('admin.profile.edit');
+    }
+    
+    public function update()
+    {
         return redirect('admin/profile/edit');
     }
 }
