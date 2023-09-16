@@ -17,37 +17,49 @@
                     <div class="form-group row">
                         <label class="col-md-2" for="title">名前</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="name" value="{{ $profiles_form->name }}">
+                            <input type="text" class="form-control" name="name" value="{{ $profile_form->name }}">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2">性別(gender)</label>
                         <div class="col-md-10">
-                          　<label>男性</label><input class="form-control-radio" type="radio" name="gender" value="{{ $profiles_form->gender }}">
-                          　<label>女性</label><input class="form-control-radio" type="radio" name="gender" value="{{ $profiles_form->gender }}">
-                          　<label>その他</label><input class="form-control-radio" type="radio" name="gender" value="{{ $profiles_form->gender }}">
+                          　<label>男性</label><input class="form-control-radio" type="radio" name="gender" value="{{ $profile_form->gender }}">
+                          　<label>女性</label><input class="form-control-radio" type="radio" name="gender" value="{{ $profile_form->gender }}">
+                          　<label>その他</label><input class="form-control-radio" type="radio" name="gender" value="{{ $profile_form->gender }}">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2" for="title">趣味</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="hobby" value="{{ $profiles_form->hobby }}">
+                            <input type="text" class="form-control" name="hobby" value="{{ $profile_form->hobby }}">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2" for="body">自己紹介欄</label>
                         <div class="col-md-10">
-                            <textarea class="form-control" name="introduction" rows="20">{{ $profiles_form->introduction }}</textarea>
+                            <textarea class="form-control" name="introduction" rows="20">{{ $profile_form->introduction }}</textarea>
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-md-10">
-                            <input type="hidden" name="id" value="{{ $profiles_form->id }}">
+                            <input type="hidden" name="id" value="{{ $profile_form->id }}">
                             @csrf
                             <input type="submit" class="btn btn-primary" value="更新">
                         </div>
                     </div>
                 </form>
+                <div class="row mt-5">
+                    <div class="col-md-4 mx-auto">
+                        <h2>編集履歴</h2>
+                        <ul class="list-group">
+                            @if ($profile_form->histories != NULL)
+                                @foreach ($profile_form->histories as $history)
+                                    <li class="list-group-item">{{ $history->edited_at }}</li>
+                                @endforeach
+                            @endif
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
