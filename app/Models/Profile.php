@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Profiles extends Model
+class Profile extends Model
 {
     use HasFactory;
     
@@ -19,8 +19,8 @@ class Profiles extends Model
         );
     
     // Profile Modelに関連付けを行う
-    public function histories()
+    public function profilehistories()
     {
-        return $this->hasMany('App\Models\History');
+        return $this->hasMany('App\Models\Profilehistory');
     }
 }

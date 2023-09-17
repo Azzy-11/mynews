@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Profiles;
-use App\Models\History;
+use App\Models\Profile;
+use App\Models\Profilehistory;
 use Carbon\Carbon;
 
 class ProfileController extends Controller
@@ -19,9 +19,9 @@ class ProfileController extends Controller
     public function create(Request $request)
     {
         // Validationを行う
-        $this->validate($request, Profiles::$rules);
+        $this->validate($request, Profile::$rules);
 
-        $profile = new Profiles;
+        $profile = new Profile;
         $form = $request->all();
         
         // フォームから送信されてきた_tokenを削除する
@@ -36,8 +36,8 @@ class ProfileController extends Controller
     
     public function edit(Request $request)
     {
-        // Profiles Modelからデータを取得する
-        $profile = Profiles::find($request->id);
+        // Profile Modelからデータを取得する
+        $profile = Profile::find($request->id);
         if (empty($profile)) {
             abort(404);
         }
@@ -47,9 +47,9 @@ class ProfileController extends Controller
     public function update(Request $request)
     {
         // Validationをかける
-        $this->validate($request, Profiles::$rules);
-        // Profiles Modelからデータを取得する
-        $profile = Profiles::find($request->id);
+        $this->validate($request, Profile::$rules);
+        // Profile Modelからデータを取得する
+        $profile = Profile::find($request->id);
         // 送信されてきたフォームデータを格納する
         $profile_form = $request->all();
 
@@ -58,10 +58,10 @@ class ProfileController extends Controller
         // 該当するデータを上書きして保存する
         $profile->fill($profile_form)->save();
         
-        $history = new History();
-        $history->profile_id = $profile->id;
-        $history->edited_at = Carbon::now();
-        $history->save();
+        $profilehistory = new Profilehistory();
+        $profilehistory->profile_id = $profile->id;
+        $profilehistory->edited_at = Carbon::now();
+        $profilehistory->save();
 
         return redirect('admin/profile/edit');
     }
