@@ -29,9 +29,9 @@
                     <div class="form-group row">
                         <label class="col-md-2">性別(gender)</label>
                         <div class="col-md-10">
-                          　<label>男性</label><input class="form-control-radio" type="radio" name="gender">
-                          　<label>女性</label><input class="form-control-radio" type="radio" name="gender">
-                          　<label>その他</label><input class="form-control-radio" type="radio" name="gender">
+                          　<label>男性</label><input class="form-control-radio" type="radio" name="gender" value="男性">
+                          　<label>女性</label><input class="form-control-radio" type="radio" name="gender" value="女性">
+                          　<label>その他</label><input class="form-control-radio" type="radio" name="gender" value="その他">
                         </div>
                     </div>
                     <div class="form-group row">

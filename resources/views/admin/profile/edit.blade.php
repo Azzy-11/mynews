@@ -23,9 +23,9 @@
                     <div class="form-group row">
                         <label class="col-md-2">性別(gender)</label>
                         <div class="col-md-10">
-                          　<label>男性</label><input class="form-control-radio" type="radio" name="gender" value="{{ $profile_form->gender }}">
-                          　<label>女性</label><input class="form-control-radio" type="radio" name="gender" value="{{ $profile_form->gender }}">
-                          　<label>その他</label><input class="form-control-radio" type="radio" name="gender" value="{{ $profile_form->gender }}">
+                          　<label>男性</label><input class="form-control-radio" type="radio" name="gender" value="男性" @checked('男性' === $profile_form->gender)>
+                          　<label>女性</label><input class="form-control-radio" type="radio" name="gender" value="女性" @checked('女性' === $profile_form->gender)>
+                          　<label>その他</label><input class="form-control-radio" type="radio" name="gender" value="その他" @checked('その他' === $profile_form->gender)>
                         </div>
                     </div>
                     <div class="form-group row">
