@@ -72,6 +72,7 @@
             </nav>
             
             <main class="py-4">
+                <p>課題　デプロイ</p>
                 <!--コンテンツくる-->
                 @yield('content')
             </main>
